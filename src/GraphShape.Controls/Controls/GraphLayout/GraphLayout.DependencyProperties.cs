@@ -37,10 +37,10 @@ namespace GraphShape.Controls
                 new HighlightTriggerEventHandler(OnHighlightTriggered));
         }
 
-        /// <summary>
-        /// When true, it disables all animations.
-        /// </summary>
-        private bool _freezeAnimations;
+        ///// <summary>
+        ///// When true, it disables all animations.
+        ///// </summary>
+        //private bool _freezeAnimations = false;
 
         /// <inheritdoc />
         public override bool CanAnimate
@@ -48,7 +48,7 @@ namespace GraphShape.Controls
             get
             {
                 return base.CanAnimate
-                       && !_freezeAnimations
+                       //&& !_freezeAnimations
                        && AnimationLength > new TimeSpan(0, 0, 0, 0, 0)
                        && Graph != null
                        && (AnimationDisablerVertexCount < 0 || Graph.VertexCount < AnimationDisablerVertexCount)
@@ -1042,12 +1042,12 @@ namespace GraphShape.Controls
             // Freeze animations to prevent registering them while destroying the old graph and building the new one
             try
             {
-                graphLayout._freezeAnimations = true;
+                //graphLayout._freezeAnimations = true;
                 graphLayout.OnRelayoutInduction(true);
             }
             finally
             {
-                graphLayout._freezeAnimations = false;
+                //graphLayout._freezeAnimations = false;
             }
         }
 
